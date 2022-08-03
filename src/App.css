@@ -1,4 +1,8 @@
-
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 #root {
   padding-left: 20%;
   padding-right: 20%;
@@ -29,5 +33,10 @@ body {
   margin: 128px auto;
   border-radius: 10px;
   padding-bottom: 32px;
+}
+
+.title {
+  color: white;
+  font-size: clamp(25px, 5vw, 45px);  font-weight: 900;
 }
 
