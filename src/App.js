@@ -20,7 +20,7 @@ function App() {
    {
      id: 1,
      label:
-       "Build a new hwiue urhw eiuhg wu hwiughruw gu wui ghiu h ru urehur ur ru riu ru u  ubrbw tbhu bhwbe wb tbtb tbetw  ther tejyyjj jty e jeyj yjeejy jej ej jy eyje y jetyjetj yej y jeyjy jytje yeyjeyje tyteyjytjty j eytejyjjy app",
+       "Build a new app",
      status: false,
    },
    { id: 2, label: "Go for a Run", status: false },

@@ -13,6 +13,11 @@
     padding-left: 10%;
     padding-right: 10%;
   }
+
+  .title {
+    padding-bottom: 5% !important;
+    padding-top: 5% !important;
+  }
 }
 
 body {
