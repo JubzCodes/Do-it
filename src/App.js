@@ -30,7 +30,7 @@ function App() {
 
   return (
     <div className="app">
-      <h1 className='title'>Just Do It List</h1>
+      <h1 className='title'>Just Do It</h1>
       {doIt && doIt.sort((a, b) => a.id > b.id ? 1 : -1).map( (task, index) => {
         return (
           <Fragment key={task.id}>
@@ -40,17 +40,17 @@ function App() {
                 <div className="doitText">{task.label}</div>
               </div>
               <div className="icons">
-                <span>
+                <span title='Did It'>
                   <FontAwesomeIcon icon={faSquareCheck} />{" "}
                 </span>
 
                 {task.status ? null : (
-                  <span>
+                  <span title='Edit'>
                     <FontAwesomeIcon icon={faPenSquare} />{" "}
                   </span>
                 )}
 
-                <span>
+                <span title='Delete'>
                   <FontAwesomeIcon icon={faTrash} />{" "}
                 </span>
               </div>
