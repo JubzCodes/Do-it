@@ -26,41 +26,64 @@ function App() {
    { id: 2, label: "Go for a Run", status: false },
  ]);
 
+   const handleChange = (e) => {
+     setTask(e.target.value);
+   };
+
+   const handleSubmit = (e) => {
+     e.preventDefault();
+     setTask("");
+   };
+
+
 
 
   return (
     <div className="app">
-      <h1 className='title'>Just Do It</h1>
-      {doIt && doIt.sort((a, b) => a.id > b.id ? 1 : -1).map( (task, index) => {
-        return (
-          <Fragment key={task.id}>
-            <div className="do-it">
-              <div className={task.status ? "finished" : ""}>
-                <span className="doitNumber">{index + 1}</span>
-                <div className="doitText">{task.label}</div>
-              </div>
-              <div className="icons">
-                <span title='Did It'>
-                  <FontAwesomeIcon icon={faSquareCheck} />{" "}
-                </span>
+      <h1 className="title">Just Do It</h1>
+      <form onSubmit={handleSubmit} className="doit-form">
+            <input
+              placeholder="Add a Do-it"
+              value={task}
+              onChange={handleChange}
+              name="text"
+              className="doit-input"
+            />
+            <button onClick={handleSubmit} className="doit-button">
+              Add Do-It
+            </button>
+      </form>
+      {doIt &&
+        doIt
+          .sort((a, b) => (a.id > b.id ? 1 : -1))
+          .map((task, index) => {
+            return (
+              <Fragment key={task.id}>
+                <div className="do-it">
+                  <div className={task.status ? "finished" : ""}>
+                    <span className="doitNumber">{index + 1}</span>
+                    <div className="doitText">{task.label}</div>
+                  </div>
+                  <div className="icons">
+                    <span title="Did It">
+                      <FontAwesomeIcon icon={faSquareCheck} />{" "}
+                    </span>
 
-                {task.status ? null : (
-                  <span title='Edit'>
-                    <FontAwesomeIcon icon={faPenSquare} />{" "}
-                  </span>
-                )}
+                    {task.status ? null : (
+                      <span title="Edit">
+                        <FontAwesomeIcon icon={faPenSquare} />{" "}
+                      </span>
+                    )}
 
-                <span title='Delete'>
-                  <FontAwesomeIcon icon={faTrash} />{" "}
-                </span>
-              </div>
-            </div>
-          </Fragment>
-        );
-      })}
-      <div>
-
-      </div>
+                    <span title="Delete">
+                      <FontAwesomeIcon icon={faTrash} />{" "}
+                    </span>
+                  </div>
+                </div>
+              </Fragment>
+            );
+          })}
+      <div></div>
     </div>
   );
 }
