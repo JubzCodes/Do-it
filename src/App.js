@@ -26,13 +26,19 @@ function App() {
    { id: 2, label: "Go for a Run", status: false },
  ]);
 
+
+ // SUBMIT FUNCTIONS
    const handleChange = (e) => {
      setTask(e.target.value);
    };
 
    const handleSubmit = (e) => {
+      if (task) {
+        let num = doIt.length + 1 
+        setDoIt([...doIt, { id: num, label: task, status: false }]);
+      }
      e.preventDefault();
-     setTask("");
+     setTask(""); 
    };
 
 
