@@ -41,6 +41,13 @@ function App() {
      setTask(""); 
    };
 
+   // DELETE DOIT
+     const deleteDoit = (id) => {
+       let updated = doIt.filter( task => task.id !== id)
+       console.log(id)
+       setDoIt(updated);
+     };
+
 
 
 
@@ -81,7 +88,12 @@ function App() {
                       </span>
                     )}
 
-                    <span title="Delete">
+                    <span
+                      title="Delete"
+                      onClick={() => {
+                        deleteDoit(task.id);
+                      }}
+                    >
                       <FontAwesomeIcon icon={faTrash} />{" "}
                     </span>
                   </div>
