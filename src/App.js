@@ -12,7 +12,7 @@ function App() {
 
   //INPUT STATES
    const [task, setTask] = useState('')
-   const [updateTask, setUpdateTask] = useState('')
+   const [editTask, setEditTask] = useState('')
 
 
   //DO IT DEFAULT STATES
@@ -80,6 +80,21 @@ function App() {
         </button>
       </form>
 
+      <form onSubmit={handleSubmit} className="doit-form">
+        <input
+          placeholder="Edit Do-it"
+          value={task}
+          onChange={handleChange}
+          name="text"
+          className="doit-edit-input"
+        />
+        <button onClick={handleSubmit} className="doit-edit-button">
+          Edit
+        </button>
+        <button onClick={handleSubmit} className="doit-cancel-button">
+          Cancel
+        </button>
+      </form>
 
       {doIt &&
         doIt

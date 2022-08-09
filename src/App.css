@@ -129,7 +129,7 @@ body {
 }
 
 .doit-input::placeholder {
-  color: white;
+  color: #999;
   font-size: large;
   font-weight: 500;
 
@@ -154,4 +154,54 @@ body {
   text-decoration: line-through;
   color: rgb(248, 2, 2);
   opacity: 0.3;
+}
+
+.doit-edit-input {
+  padding: 14px 32px 14px 16px;
+  border-radius: 4px;
+  border: 2px solid rgb(1, 1, 112);
+  outline: none;
+  width: 45%;
+  background: transparent;
+  color: white;
+  margin-bottom: 3%;
+}
+
+.doit-edit-button {
+  padding: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  background: linear-gradient(
+    20deg,
+    rgb(5, 16, 90) 0%,
+    rgb(0, 17, 255) 100%
+  );
+  color: #fff;
+  text-transform: capitalize;
+  margin-left: .5%;
+}
+
+.doit-edit-input::placeholder {
+  color: #999;
+  font-size: large;
+  font-weight: 500;
+
+}
+
+.doit-cancel-button {
+  padding: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  background: linear-gradient(
+    20deg,
+    rgb(5, 16, 90) 0%,
+    rgb(0, 17, 255) 100%
+  );
+  color: #fff;
+  text-transform: capitalize;
+  margin-left: .5%;
 }
