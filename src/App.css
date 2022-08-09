@@ -149,3 +149,9 @@ body {
   color: #fff;
   text-transform: capitalize;
 }
+
+.do-it .finished .doitText {
+  text-decoration: line-through;
+  color: rgb(248, 2, 2);
+  opacity: 0.3;
+}

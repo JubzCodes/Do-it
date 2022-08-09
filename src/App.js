@@ -48,6 +48,19 @@ function App() {
        setDoIt(updated);
      };
 
+     //COMPLETED DOIT 
+       const complete = (id) => {
+      
+         let updated = doIt.map( task => {
+           if( task.id === id ) {
+             return ({ ...task, status: !task.status })
+           }
+           return task
+         })
+         setDoIt(updated)
+
+       };
+
 
 
 
@@ -67,7 +80,7 @@ function App() {
         </button>
       </form>
 
-      
+
       {doIt &&
         doIt
           .sort((a, b) => (a.id > b.id ? 1 : -1))
@@ -80,7 +93,12 @@ function App() {
                     <div className="doitText">{task.label}</div>
                   </div>
                   <div className="icons">
-                    <span title="Did It">
+                    <span
+                      title="Did It"
+                      onClick={() => {
+                        complete(task.id);
+                      }}
+                    >
                       <FontAwesomeIcon icon={faSquareCheck} />{" "}
                     </span>
 
