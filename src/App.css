@@ -115,3 +115,37 @@ body {
 .icons span:hover {
   color: #999;
 }
+
+.doit-input {
+  padding: 14px 32px 14px 16px;
+  border-radius: 4px 0 0 4px;
+  border: 2px solid rgb(1, 1, 112);
+  border-right: none;
+  outline: none;
+  width: 45%;
+  background: transparent;
+  color: white;
+  margin-bottom: 3%;
+}
+
+.doit-input::placeholder {
+  color: white;
+  font-size: large;
+  font-weight: 500;
+
+}
+
+.doit-button {
+  padding: 16px;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  outline: none;
+  background: linear-gradient(
+    90deg,
+    rgb(5, 16, 90) 0%,
+    rgb(0, 17, 255) 100%
+  );
+  color: #fff;
+  text-transform: capitalize;
+}

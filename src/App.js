@@ -55,17 +55,19 @@ function App() {
     <div className="app">
       <h1 className="title">Just Do It</h1>
       <form onSubmit={handleSubmit} className="doit-form">
-            <input
-              placeholder="Add a Do-it"
-              value={task}
-              onChange={handleChange}
-              name="text"
-              className="doit-input"
-            />
-            <button onClick={handleSubmit} className="doit-button">
-              Add Do-It
-            </button>
+        <input
+          placeholder="Add a Do-it"
+          value={task}
+          onChange={handleChange}
+          name="text"
+          className="doit-input"
+        />
+        <button onClick={handleSubmit} className="doit-button">
+          Add Do-It
+        </button>
       </form>
+
+      
       {doIt &&
         doIt
           .sort((a, b) => (a.id > b.id ? 1 : -1))
