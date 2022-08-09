@@ -92,34 +92,40 @@ function App() {
   return (
     <div className="app">
       <h1 className="title">Just Do It</h1>
-      <form onSubmit={handleSubmit} className="doit-form">
-        <input
-          placeholder="Add a Do-it"
-          value={task}
-          onChange={handleChange}
-          name="text"
-          className="doit-input"
-        />
-        <button onClick={handleSubmit} className="doit-button">
-          Add Do-It
-        </button>
-      </form>
 
-      <form onSubmit={edit} className="doit-form">
-        <input
-          placeholder="Edit Do-it"
-          value={ editTask && editTask.label}
-          onChange={(e) => {handleEdit(e)}}
-          name="text"
-          className="doit-edit-input"
-        />
-        <button onClick={edit} className="doit-edit-button">
-          Edit
-        </button>
-        <button onClick={cancel} className="doit-cancel-button">
-          Cancel
-        </button>
-      </form>
+      {editTask && editTask ? (
+        <form onSubmit={edit} className="doit-form">
+          <input
+            placeholder="Edit Do-it"
+            value={editTask && editTask.label}
+            onChange={(e) => {
+              handleEdit(e);
+            }}
+            name="text"
+            className="doit-edit-input"
+          />
+          <button onClick={edit} className="doit-edit-button">
+            Edit
+          </button>
+          <button onClick={cancel} className="doit-cancel-button">
+            Cancel
+          </button>
+        </form>
+      ) : (
+        <form onSubmit={handleSubmit} className="doit-form">
+          <input
+            placeholder="Add a Do-it"
+            value={task}
+            onChange={handleChange}
+            name="text"
+            className="doit-input"
+          />
+          <button onClick={handleSubmit} className="doit-button">
+            Add Do-It
+          </button>
+        </form>
+      )}
+
 
       {doIt &&
         doIt
@@ -143,11 +149,16 @@ function App() {
                     </span>
 
                     {task.status ? null : (
-                      <span title="Edit" onClick={() => setEditTask({
-                        id: task.id, 
-                        label: task.label,
-                        status: task.status ? true : false
-                      })}>
+                      <span
+                        title="Edit"
+                        onClick={() =>
+                          setEditTask({
+                            id: task.id,
+                            label: task.label,
+                            status: task.status ? true : false,
+                          })
+                        }
+                      >
                         <FontAwesomeIcon icon={faPenSquare} />{" "}
                       </span>
                     )}
