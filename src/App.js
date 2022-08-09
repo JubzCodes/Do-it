@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Fragment } from 'react';
 import './App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -96,6 +96,12 @@ function App() {
         setEditTask("");
       };
 
+      const inputRef = useRef(null);
+
+      useEffect(() => {
+        inputRef.current.focus();
+      });
+
 
 
   return (
@@ -114,6 +120,7 @@ function App() {
             }}
             name="text"
             className="doit-edit-input"
+            ref={inputRef}
           />
           <button onClick={edit} className="doit-edit-button">
             Edit
@@ -130,6 +137,7 @@ function App() {
             onChange={handleChange}
             name="text"
             className="doit-input"
+            ref={inputRef}
           />
           <button onClick={handleSubmit} className="doit-button">
             Add Do-It
