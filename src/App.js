@@ -61,6 +61,17 @@ function App() {
 
        };
 
+       
+      //EDIT INPUT 
+        const handleEdit = (e) => {
+          let updated = {
+            id: editTask.id,
+            label: e.target.value,
+            status: editTask.status ? true : false
+          }
+          setEditTask(updated)
+        };
+
 
 
 
@@ -83,8 +94,8 @@ function App() {
       <form onSubmit={handleSubmit} className="doit-form">
         <input
           placeholder="Edit Do-it"
-          value={task}
-          onChange={handleChange}
+          value={ editTask && editTask.label}
+          onChange={(e) => {handleEdit(e)}}
           name="text"
           className="doit-edit-input"
         />
@@ -118,7 +129,11 @@ function App() {
                     </span>
 
                     {task.status ? null : (
-                      <span title="Edit">
+                      <span title="Edit" onClick={() => setEditTask({
+                        id: task.id, 
+                        label: task.label,
+                        status: task.status ? true : false
+                      })}>
                         <FontAwesomeIcon icon={faPenSquare} />{" "}
                       </span>
                     )}
