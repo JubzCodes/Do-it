@@ -61,6 +61,10 @@ function App() {
 
        };
 
+       //CANCEL BUTTON
+        const cancel = () => {
+          setEditTask("");
+        };
        
       //EDIT INPUT 
         const handleEdit = (e) => {
@@ -71,6 +75,16 @@ function App() {
           }
           setEditTask(updated)
         };
+
+    //EDIT BUTTON
+      const edit = (e) => {
+
+        let updated = [...doIt].filter( task => task.id !== editTask.id )
+        let updatedObj = [...updated, editTask]
+        setDoIt(updatedObj)
+        e.preventDefault();
+        setEditTask("");
+      };
 
 
 
@@ -91,7 +105,7 @@ function App() {
         </button>
       </form>
 
-      <form onSubmit={handleSubmit} className="doit-form">
+      <form onSubmit={edit} className="doit-form">
         <input
           placeholder="Edit Do-it"
           value={ editTask && editTask.label}
@@ -99,10 +113,10 @@ function App() {
           name="text"
           className="doit-edit-input"
         />
-        <button onClick={handleSubmit} className="doit-edit-button">
+        <button onClick={edit} className="doit-edit-button">
           Edit
         </button>
-        <button onClick={handleSubmit} className="doit-cancel-button">
+        <button onClick={cancel} className="doit-cancel-button">
           Cancel
         </button>
       </form>
