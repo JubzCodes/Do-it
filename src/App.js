@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Fragment } from 'react';
 import './App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,6 +7,7 @@ import {
   faPenSquare,
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
+import UseLocalStorage from './UseLocalStorage';
 
 function App() {
 
@@ -14,18 +15,26 @@ function App() {
    const [task, setTask] = useState('')
    const [editTask, setEditTask] = useState('')
 
-
-  //DO IT DEFAULT STATES
- const [doIt, setDoIt] = useState([
-   {
-     id: 1,
-     label:
-       "Build a new app",
-     status: false,
-   },
-   { id: 2, label: "Go for a Run", status: false },
- ]);
-
+   
+   //DO IT DEFAULT STATES
+  //  const [doIt, setDoIt] = useState([
+  //    {
+  //      id: 1,
+  //      label:
+  //      "Build a new app",
+  //      status: false,
+  //     },
+  //     { id: 2, label: "Go for a Run", status: false },
+  //   ]);
+    
+    const [doIt, setDoIt] = UseLocalStorage("Do it User", [
+      {
+        id: 1,
+        label: "Build a new app",
+        status: false,
+      },
+      { id: 2, label: "Go for a Run", status: false },
+    ]);
 
  // SUBMIT FUNCTIONS
    const handleChange = (e) => {
@@ -36,6 +45,7 @@ function App() {
       if (task) {
         let num = doIt.length + 1 
         setDoIt([...doIt, { id: num, label: task, status: false }]);
+
       }
      e.preventDefault();
      setTask(""); 
@@ -44,7 +54,7 @@ function App() {
    // DELETE DOIT
      const deleteDoit = (id) => {
        let updated = doIt.filter( task => task.id !== id)
-       console.log(id)
+       console.log(doIt.filter((task) => task.id !== id));
        setDoIt(updated);
      };
 
@@ -85,7 +95,6 @@ function App() {
         e.preventDefault();
         setEditTask("");
       };
-
 
 
 
@@ -136,7 +145,7 @@ function App() {
           .sort((a, b) => (a.id > b.id ? 1 : -1))
           .map((task, index) => {
             return (
-              <Fragment key={task.id}>
+              <Fragment key={index}>
                 <div className="do-it">
                   <div className={task.status ? "finished" : ""}>
                     <span className="doitNumber">{index + 1}</span>
