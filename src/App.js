@@ -93,6 +93,8 @@ function App() {
     <div className="app">
       <h1 className="title">Just Do It</h1>
 
+      {/* {FORMS} */}
+
       {editTask && editTask ? (
         <form onSubmit={edit} className="doit-form">
           <input
@@ -126,6 +128,8 @@ function App() {
         </form>
       )}
 
+      {/* {DO-ITS} */}
+      {doIt && doIt.length ? "" : "NO DOITS..."}
 
       {doIt &&
         doIt
